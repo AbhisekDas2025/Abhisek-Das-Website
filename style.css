@@ -1,0 +1,566 @@
+body {
+    font-family: 'Calibri', sans-serif;
+    background: #0c0c0c;
+    color: #ffffff;
+    margin: 0;
+    padding: 50px;
+    line-height: 1.5;
+    transition: background-color 0.5s, color 0.5s;
+  }
+  
+  body.dark-mode {
+    background: #0c0c0c;
+    color: white;
+    filter: brightness(100%);
+  }
+  
+  body.light-mode {
+    background: #f9f9f9;
+    color: black;
+    filter: brightness(105%);
+  }
+  
+  body.sepia-mode {
+    background: #f4ecd8;
+    color: #5b4636;
+    filter: brightness(102%);
+  }
+  
+  body.sepia-mode button,
+  body.light-mode button {
+    color: inherit;
+    border-color: inherit;
+  }
+  
+  .header {
+    text-align: center;
+    padding-top: 20px;
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+  }
+  
+  .header small {
+    font-size: 1rem;
+    display: block;
+    font-style: italic;
+    margin-top: 5px;
+  }
+  
+  .contact-buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .contact-buttons a,
+  .contact-buttons button {
+    background: transparent;
+    border: 1px solid currentColor;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contact-buttons a:hover,
+  .contact-buttons button:hover {
+    background: #ffffff20;
+    transform: scale(1.1);
+  }
+  
+  .contact-buttons img {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+  }
+  
+  body.dark-mode .contact-buttons img[alt="LinkedIn"] {
+    filter: brightness(0) invert(1);
+  }
+  
+  section {
+    margin-bottom: 60px;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  small {
+    font-size: 1.1rem;
+    font-style: italic;
+  }
+  
+  /* ABOUT SECTION */
+  .about {
+    margin: 40px auto 60px;
+    padding: 20px;
+    border: 1px dashed #444;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.02);
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 800px;
+  }
+  
+  .about:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  body.light-mode .about {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-color: #ccc;
+  }
+  
+  body.sepia-mode .about {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #8b7765;
+  }
+  
+  .about h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+  
+  .about p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  
+  /* ETHOS & PROJECTS */
+  .ethos-container,
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .ethos-box,
+  .project-card {
+    padding: 20px;
+    border: 1px dashed #444;
+    border-radius: 10px;
+    transition: transform 0.3s, filter 0.3s, box-shadow 0.3s;
+  }
+  
+  .ethos-box:hover,
+  .project-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .project-card:nth-child(1) { filter: brightness(90%); }
+  .project-card:nth-child(2) { filter: brightness(100%); }
+  .project-card:nth-child(3) { filter: brightness(110%); }
+  .project-card:nth-child(4) { filter: brightness(120%); }
+  
+  .project-card a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: inherit;
+    transition: transform 0.3s;
+  }
+  
+  .project-card a:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  
+  /* Resume Button */
+  .resume-button a {
+    transition: transform 0.3s, background 0.3s;
+  }
+  
+  .resume-button a:hover {
+    transform: scale(1.05);
+    background: #ffffff20;
+  }
+  
+  /* Theme Toggle Button */
+  #toggle-theme {
+    border: 1px solid currentColor;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  /* Job Details + Toggle */
+  .job-details {
+    display: none;
+    margin-top: 10px;
+    padding-left: 15px;
+    border-left: 2px solid currentColor;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+  }
+  
+  body.light-mode .job-details {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  body.dual-mode .job-details {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+  
+  body.sepia-mode .job-details {
+    background-color: rgba(244, 236, 216, 0.5);
+  }
+  
+  
+  .toggle-btn {
+    background: transparent;
+    border: 1px solid currentColor;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: inherit;
+    transition: background 0.3s;
+  }
+  
+  .toggle-btn:hover {
+    background: #ffffff20;
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: #1a1a1a;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  body.light-mode .modal-content {
+    background: #fff;
+    color: #000;
+  }
+  
+  body.sepia-mode .modal-content {
+    background: #f4ecd8;
+    color: #5b4636;
+  }
+  
+  .modal-content .close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: inherit;
+  }
+  
+  @keyframes fadeIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  body.dual-mode {
+    background: linear-gradient(to bottom right, #dce6f7, #f5faff); /* light blue and white */
+    color: #002147; /* navy blue text */
+    filter: brightness(102%);
+  }
+  
+  body.dual-mode .about,
+  body.dual-mode .modal-content {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #002147;
+    border-color: #4a90e2;
+  }
+  
+  body.dual-mode .ethos-box,
+  body.dual-mode .project-card {
+    border-color: #4a90e2;
+    background-color: rgba(240, 248, 255, 0.9);
+    color: #002147;
+  }
+  
+  body.dual-mode .contact-buttons a,
+  body.dual-mode .contact-buttons button,
+  body.dual-mode .toggle-btn {
+    border-color: #4a90e2;
+    color: #002147;
+  }
+  /* Dual-mode specific icons filter */
+body.dual-mode .contact-buttons img[alt="LinkedIn"] {
+    filter: brightness(0) saturate(100%) invert(15%) sepia(70%) saturate(747%) hue-rotate(180deg) brightness(95%) contrast(85%);
+  }
+  
+  body.dual-mode .contact-buttons a[title="GitHub"] {
+    color: #002147; /* Navy blue */
+  }
+  
+  body.dual-mode .contact-buttons a[title="Email"],
+  body.dual-mode .contact-buttons a[title="Google Calendar"],
+  body.dual-mode .contact-buttons a[title="Phone"] {
+    color: #002147;
+  }
+  /* Make GitHub icon visible in dark mode */
+body.dark-mode .contact-buttons img[alt="GitHub"] {
+    filter: brightness(0) invert(1);
+  }
+  
+  /* Optional: adjust for dual-mode */
+  body.dual-mode .contact-buttons img[alt="GitHub"] {
+    filter: brightness(0) saturate(100%) invert(15%) sepia(70%) saturate(747%) hue-rotate(180deg) brightness(95%) contrast(85%);
+  }
+  
+  /* Adjust for light mode */
+  body.light-mode .contact-buttons img[alt="GitHub"] {
+    filter: none; /* Original black icon works on light background */
+  }
+  
+  /* Optional for sepia */
+  body.sepia-mode .contact-buttons img[alt="GitHub"] {
+    filter: brightness(0) invert(30%) sepia(100%) saturate(500%) hue-rotate(10deg);
+  }
+  /* ===== LINKEDIN ICON ===== */
+body.dark-mode .contact-buttons img[alt="LinkedIn"],
+body.dual-mode .contact-buttons img[alt="LinkedIn"] {
+  filter: brightness(0) invert(1); /* White for dark bg */
+}
+
+body.light-mode .contact-buttons img[alt="LinkedIn"],
+body.sepia-mode .contact-buttons img[alt="LinkedIn"] {
+  filter: brightness(0) invert(0); /* Dark for light bg */
+}
+
+/* ===== EMAIL ICON ===== */
+body.dark-mode .contact-buttons img[alt="Email"],
+body.dual-mode .contact-buttons img[alt="Email"] {
+  filter: brightness(0) invert(1);
+}
+
+body.light-mode .contact-buttons img[alt="Email"],
+body.sepia-mode .contact-buttons img[alt="Email"] {
+  filter: brightness(0) invert(0);
+}
+
+/* ===== GITHUB ICON ===== */
+body.dark-mode .contact-buttons img[alt="GitHub"],
+body.dual-mode .contact-buttons img[alt="GitHub"] {
+  filter: brightness(0) invert(1);
+}
+
+body.light-mode .contact-buttons img[alt="GitHub"],
+body.sepia-mode .contact-buttons img[alt="GitHub"] {
+  filter: brightness(0) invert(0);
+}
+/* === LinkedIn Icon === */
+body.dark-mode .contact-buttons img[alt="LinkedIn"],
+body.dual-mode .contact-buttons img[alt="LinkedIn"] {
+  filter: brightness(0) invert(1);
+}
+
+body.light-mode .contact-buttons img[alt="LinkedIn"],
+body.sepia-mode .contact-buttons img[alt="LinkedIn"] {
+    filter: brightness(0) invert(1);
+}
+
+/* === GitHub Icon === */
+body.dark-mode .contact-buttons img[alt="GitHub"],
+body.dual-mode .contact-buttons img[alt="GitHub"] {
+  filter: brightness(0) invert(1);
+}
+
+body.light-mode .contact-buttons img[alt="GitHub"],
+body.sepia-mode .contact-buttons img[alt="GitHub"] {
+  filter: none;
+}
+
+/* === Email Icon === */
+body.dark-mode .contact-buttons img[alt="Email"],
+body.dual-mode .contact-buttons img[alt="Email"] {
+  filter: brightness(0) invert(1);
+}
+
+body.light-mode .contact-buttons img[alt="Email"],
+body.sepia-mode .contact-buttons img[alt="Email"] {
+  filter: none;
+}
+/* ===== ICON FILTERS BY MODE ===== */
+
+/* DARK MODE: make icons white */
+body.dark-mode .contact-buttons img {
+    filter: brightness(0) invert(1);
+  }
+  
+  /* LIGHT MODE: keep original black icons */
+  body.light-mode .contact-buttons img,
+  body.sepia-mode .contact-buttons img,
+  body.dual-mode .contact-buttons img {
+    filter: none;
+  }
+  /* DARK MODE: make icons white */
+body.dark-mode .contact-buttons img {
+    filter: brightness(0) invert(1);
+  }
+  
+  /* LIGHT, SEPIA, DUAL: show original icon colors clearly */
+  body.light-mode .contact-buttons img,
+  body.sepia-mode .contact-buttons img,
+  body.dual-mode .contact-buttons img {
+    filter: none;
+  }
+  /* DARK MODE: white icons */
+body.dark-mode .contact-buttons img {
+    filter: brightness(0) invert(1);
+  }
+  
+  /* LIGHT MODE: black icons */
+  body.light-mode .contact-buttons img[alt="LinkedIn"],
+  body.light-mode .contact-buttons img[alt="GitHub"],
+  body.light-mode .contact-buttons img[alt="Email"] {
+    filter: brightness(0) invert(0); /* Ensure icons stay black */
+  }
+  
+  /* SEPIA MODE: slightly darkened icons */
+  body.sepia-mode .contact-buttons img[alt="LinkedIn"],
+  body.sepia-mode .contact-buttons img[alt="GitHub"],
+  body.sepia-mode .contact-buttons img[alt="Email"] {
+    filter: brightness(0) invert(0); /* Similar to light mode */
+  }
+  
+  /* DUAL MODE: black icons for clarity */
+  body.dual-mode .contact-buttons img[alt="LinkedIn"],
+  body.dual-mode .contact-buttons img[alt="GitHub"],
+  body.dual-mode .contact-buttons img[alt="Email"] {
+    filter: brightness(0) invert(0); /* Black for light background */
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* full height viewport */
+  }
+  
+  footer {
+    margin-top: auto; /* pushes footer to bottom */
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    color: inherit;
+  }
+  .skills {
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 95%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px dashed #444;
+    text-align: center;
+    overflow-x: auto;
+  }
+  
+  .skills h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    padding: 10px;
+  }
+  
+  .skill {
+    border: 1px solid currentColor;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: transform 0.3s, background 0.3s;
+    white-space: nowrap;
+  }
+  
+  .skill:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 70%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 8px;    /* ↓ smaller gap below the image */
+  }
+  
+  .header h1 {
+    margin-top: 0;         /* remove any extra space above */
+    margin-bottom: 4px;    /* tighten up below the name */
+  }
+  
+  
+  /* style.css */
+
+/* Base header */
+.header {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  /* Full-screen header on mobile */
+  @media (max-width: 600px) {
+    .header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+  
+    /* ensure all following sections are visible */
+    section {
+      display: block;
+    }
+  }
+  
+  /* Body always scrolls */
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+  
+  
