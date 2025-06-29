@@ -563,4 +563,6 @@ body.dark-mode .contact-buttons img {
     overflow-x: hidden;
   }
   
-  
+  p{
+    text-align: justify;
+  }
